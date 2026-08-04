@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Share feedback — From Justification toward Sanctification</title>
+  <meta name="description" content="Share a short note about the book or practice resources. No account required." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="feedback-body">
+  <header class="feedback-top">
+    <a href="index.html">← Practice site</a>
+  </header>
+
+  <main class="feedback-main">
+    <h1>Share feedback</h1>
+    <p class="feedback-intro">One short note is enough. No account needed.</p>
+
+    <form
+      class="feedback-form"
+      id="feedback-form"
+      action="https://formsubmit.co/fang.li@oc.com"
+      method="POST"
+    >
+      <input type="hidden" name="_subject" value="Feedback: From Justification toward Sanctification" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_next" value="https://fanglioc.github.io/toward-sanctification-site/feedback.html?sent=1" />
+      <input type="text" name="_honey" class="feedback-honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+      <label for="message">Your note</label>
+      <textarea id="message" name="message" rows="7" required placeholder="What helped, what was unclear, or a sentence from your week…"></textarea>
+
+      <label for="email">Email <span>(optional)</span></label>
+      <input id="email" type="email" name="email" placeholder="Only if you’d like a reply" autocomplete="email" />
+
+      <button class="btn btn-primary" type="submit">Send</button>
+    </form>
+
+    <p class="feedback-thanks" id="sent-note" hidden>
+      Thank you. Your note was sent.
+    </p>
+  </main>
+
+  <script>
+    if (new URLSearchParams(location.search).get("sent") === "1") {
+      const note = document.getElementById("sent-note");
+      const form = document.getElementById("feedback-form");
+      if (note && form) {
+        note.hidden = false;
+        form.hidden = true;
+      }
+    }
+  </script>
+</body>
+</html>
